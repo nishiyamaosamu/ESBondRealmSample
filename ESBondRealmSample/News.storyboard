@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hnw-2P-5oa">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--News-->
+        <scene sceneID="1uf-ci-jVU">
+            <objects>
+                <tableViewController id="YQc-UX-Mpj" customClass="NewsTableViewController" customModule="ESBondRealmSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="3gK-7t-csm">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QiitaItemTableViewCell" id="amb-v0-dND" customClass="QiitaItemTableViewCell" customModule="ESBondRealmSample" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="amb-v0-dND" id="J9e-wE-fLK">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YQc-UX-Mpj" id="jcx-fa-hlU"/>
+                            <outlet property="delegate" destination="YQc-UX-Mpj" id="aSa-my-XHR"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="News" id="f6g-nC-Nwj">
+                        <barButtonItem key="leftBarButtonItem" title="change" id="gLF-r4-klG">
+                            <connections>
+                                <action selector="tappedChange:" destination="YQc-UX-Mpj" id="7Z8-NI-WIa"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Reload" id="Iak-da-dYT">
+                            <connections>
+                                <action selector="tappedReload:" destination="YQc-UX-Mpj" id="Mwd-DP-0ID"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aVM-3m-9td" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="502" y="450"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bk1-db-qBr">
+            <objects>
+                <navigationController id="hnw-2P-5oa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="recents" id="qm2-2p-rTY"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TAA-Fa-unx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="YQc-UX-Mpj" kind="relationship" relationship="rootViewController" id="NBc-lT-32V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PON-yn-7gc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-318" y="450"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (3.5.0)
+  - AlamofireImage (2.5.0):
+    - Alamofire (~> 3.5)
+  - Bond (4.3.1)
+  - Realm (1.0.2):
+    - Realm/Headers (= 1.0.2)
+  - Realm/Headers (1.0.2)
+  - RealmSwift (1.0.2):
+    - Realm (= 1.0.2)
+  - SwiftyJSON (2.4.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 3.5)
+  - AlamofireImage (~> 2.5)
+  - Bond (~> 4.3.1)
+  - RealmSwift (~> 1.0.0)
+  - SwiftyJSON (~> 2.4)
+
+SPEC CHECKSUMS:
+  Alamofire: b70a7352335f8ea5babd0a923eb7e8eacc67b877
+  AlamofireImage: 2d34936e5201270bb17a316a786e90e83b4a249d
+  Bond: 55903fc67f09e8e49791a657163cabba1d6fb29d
+  Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
+  RealmSwift: 82f3ac5e24530143dddfde2033acc0d308f27d96
+  SwiftyJSON: 96918c1bf505efa50c4f72957018dd3452090c9c
+
+COCOAPODS: 0.39.0
