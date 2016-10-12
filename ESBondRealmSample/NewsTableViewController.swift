@@ -18,12 +18,12 @@ class NewsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.clearsSelectionOnViewWillAppear = true
+        self.clearsSelectionOnViewWillAppear = true
         self.tableView.registerNib(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
         self.tableView.delegate = self
 
-        self.vm.fetchNewsItems()
-        self.vm.articleItems.bindTo(tableView) { indexPath, dataSource, tableView in
+        self.vm.fetch()
+        self.vm.qiitaItemTableViewCellViewVMs.bindTo(tableView) { indexPath, dataSource, tableView in
             let cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier, forIndexPath: indexPath) as! QiitaItemTableViewCell
             let item = dataSource[indexPath.section][indexPath.row]
             item.title
@@ -57,15 +57,15 @@ class NewsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.vm.articleItems.count
+        return self.vm.qiitaItemTableViewCellViewVMs.count
     }
 
     @IBAction func tappedReload(sender: UIBarButtonItem) {
-        self.vm.fetchNewsItems()
+        self.vm.fetch()
     }
     
     @IBAction func tappedChange(sender: UIBarButtonItem) {
-        if let items = self.vm.articleItems.first {
+        if let items = self.vm.qiitaItemTableViewCellViewVMs.first {
             let realm = try! Realm()
             for item in items {
                 try! realm.write({
@@ -76,7 +76,7 @@ class NewsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = self.vm.articleItems[indexPath.section][indexPath.row]
-        self.vm.addOrRemoveFavorite(item)
+        let item = self.vm.qiitaItemTableViewCellViewVMs[indexPath.section][indexPath.row]
+        self.vm.toggleFavorite(item)
     }
 }

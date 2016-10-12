@@ -23,7 +23,7 @@ class FavoriteTableViewController: UITableViewController {
         self.tableView.registerNib(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
         self.tableView.delegate = self
         
-        self.vm.articleItems.bindTo(tableView) { indexPath, dataSource, tableView in
+        self.vm.qiitaItemTavleViewCellVMs.bindTo(tableView) { indexPath, dataSource, tableView in
             let cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier, forIndexPath: indexPath) as! QiitaItemTableViewCell
             let item = dataSource[indexPath.section][indexPath.row]
             item.title
@@ -57,11 +57,11 @@ class FavoriteTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.vm.articleItems.count
+        return self.vm.qiitaItemTavleViewCellVMs.count
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = self.vm.articleItems[indexPath.section][indexPath.row]
+        let item = self.vm.qiitaItemTavleViewCellVMs[indexPath.section][indexPath.row]
         self.vm.removeFavorite(item)
     }
 

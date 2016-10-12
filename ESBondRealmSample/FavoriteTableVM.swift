@@ -10,45 +10,48 @@ import Foundation
 import RealmSwift
 import Bond
 
+// お気に入りのQiitaItemTableViewCellVMを保持するcollection
 class FavoriteTableVM {
-    var articleItems = ObservableArray<ObservableArray<QiitaItemTableViewCellVM>>()
+    var qiitaItemTavleViewCellVMs = ObservableArray<ObservableArray<QiitaItemTableViewCellVM>>()
     var notificationToken: NotificationToken?
     
     init(){
-        let realm = try! Realm()
-        let newsResults = realm.objects(Favorite.self).sorted("createdAt")
-        notificationToken = newsResults.addNotificationBlock( { [weak self] (changes: RealmCollectionChange) in
-            
+        let favorites = Favorite.getAll()
+        notificationToken = favorites.addNotificationBlock( { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .Initial(_):
                 let tmpArray = ObservableArray<QiitaItemTableViewCellVM>()
-                _ = newsResults.map {
-                    let qiitaItemCellViewModel = QiitaItemTableViewCellVM.init(qiitaItem: $0.qiitaItem)
+                favorites.forEach { (favorite) -> Void in
+                    let qiitaItemCellViewModel = QiitaItemTableViewCellVM.init(qiitaItem: favorite.qiitaItem)
                     tmpArray.append(qiitaItemCellViewModel)
                 }
-                self?.articleItems.append(tmpArray)
+                self?.qiitaItemTavleViewCellVMs.append(tmpArray)
                 break
+                
             case .Update(let elements, let deletions, let insertions, let modifications):
-                _ = deletions.reverse().map {
-                    if let arr = self?.articleItems.first {
-                        arr.removeAtIndex($0)
+                deletions.reverse().forEach { deleteIndex in
+                    if let arr = self?.qiitaItemTavleViewCellVMs.first {
+                        arr.removeAtIndex(deleteIndex)
                     }
                 }
-                _ = insertions.map {
-                    if let arr = self?.articleItems.first {
-                        let favorite = elements[$0]
-                        arr.insert(QiitaItemTableViewCellVM.init(qiitaItem: favorite.qiitaItem), atIndex: $0)
+                
+                insertions.forEach { insertIndex in
+                    if let arr = self?.qiitaItemTavleViewCellVMs.first {
+                        let favorite = elements[insertIndex]
+                        arr.insert(QiitaItemTableViewCellVM.init(qiitaItem: favorite.qiitaItem), atIndex: insertIndex)
                     }
                 }
-                _ = modifications.map {
-                    if let arr = self?.articleItems.first {
-                        if elements.indices.contains($0) && arr.indices.contains($0) {
-                            let favorite = elements[$0]
-                            arr[$0] = QiitaItemTableViewCellVM.init(qiitaItem: favorite.qiitaItem)
+                
+                modifications.forEach { modifiedIndex in
+                    if let arr = self?.qiitaItemTavleViewCellVMs.first {
+                        if elements.indices.contains(modifiedIndex) && arr.indices.contains(modifiedIndex) {
+                            let favorite = elements[modifiedIndex]
+                            arr[modifiedIndex] = QiitaItemTableViewCellVM.init(qiitaItem: favorite.qiitaItem)
                         }
                     }
                 }
                 break
+                
             case .Error(let error):
                 fatalError("\(error)")
                 break
@@ -57,12 +60,7 @@ class FavoriteTableVM {
     }
     
     func removeFavorite(item : QiitaItemTableViewCellVM){
-        let realm = try! Realm()
-        if let favorite = item.favoriteResults.first {
-            try! realm.write({
-                realm.delete(favorite)
-            })
-        }    }
-    
+        Favorite.deleteByQiitaItemId(item.itemId.value)
+    }
 }
 
