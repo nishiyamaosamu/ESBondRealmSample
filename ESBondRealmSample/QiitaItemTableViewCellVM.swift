@@ -22,12 +22,15 @@ class QiitaItemTableViewCellVM {
     var userImageURL : NSURL? = nil
     var url : NSURL? = nil
     var qiitaItem : QiitaItemRealm? = nil
+    var notificationToken: NotificationToken?
 
     init(qiitaItem : QiitaItemRealm?){
         self.qiitaItem = qiitaItem
         self.render()
 
-        qiitaItem?.favorite.addNotificationBlock({ [weak self] (changes: RealmCollectionChange) in
+        // Realmからの変更通知を受け取って、qiitaItemTableViewCellViewVMsを変更することでViewの表示を変える
+        // Model => View
+        notificationToken = qiitaItem?.favorite.addNotificationBlock({ [weak self] (changes: RealmCollectionChange) in
             
             func updateIsNotBookmarked(){
                 self?.isNotFavorited.value = !(self?.qiitaItem?.favorite.count > 0)

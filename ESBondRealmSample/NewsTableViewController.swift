@@ -23,22 +23,13 @@ class NewsTableViewController: UITableViewController {
         self.tableView.delegate = self
 
         self.vm.fetch()
+        
+        // イベントを受け取って、vmに通知する
+        // ここでは、qiitaItemTableViewCellViewVMsの数が減ったり増えたりを検知できる
         self.vm.qiitaItemTableViewCellViewVMs.bindTo(tableView) { indexPath, dataSource, tableView in
             let cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier, forIndexPath: indexPath) as! QiitaItemTableViewCell
             let item = dataSource[indexPath.section][indexPath.row]
-            item.title
-                .bindTo(cell.title!.bnd_text)
-                .disposeIn(cell.bnd_bag)
-            item.userId
-                .bindTo(cell.userId!.bnd_text)
-                .disposeIn(cell.bnd_bag)
-            item.userImage
-                .bindTo(cell.userImageView.bnd_image)
-                .disposeIn(cell.bnd_bag)
-            item.fetchImageIfNeeded()
-            item.isNotFavorited
-                .bindTo(cell.favoritedMark.bnd_hidden)
-                .disposeIn(cell.bnd_bag)
+            cell.setCell(item)
             return cell
         }
     }
@@ -65,14 +56,7 @@ class NewsTableViewController: UITableViewController {
     }
     
     @IBAction func tappedChange(sender: UIBarButtonItem) {
-        if let items = self.vm.qiitaItemTableViewCellViewVMs.first {
-            let realm = try! Realm()
-            for item in items {
-                try! realm.write({
-                    item.qiitaItem?.title = "タイトル書き換え"
-                })
-            }
-        }
+        self.vm.updateTitle("タイトル書き換え")
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

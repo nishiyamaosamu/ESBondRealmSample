@@ -29,7 +29,8 @@ class Favorite: NSObject {
         }
         
         let realm = try! Realm()
-        let qiitaItem = realm.objects(QiitaItemRealm.self).filter("id = \(itemId)").first
+        let predicate = NSPredicate(format: "id = %@", itemId)
+        let qiitaItem = realm.objects(QiitaItemRealm.self).filter(predicate).first
         deleteByQiitaItem(qiitaItem)
     }
     
@@ -40,7 +41,8 @@ class Favorite: NSObject {
         }
 
         let realm = try! Realm()
-        let qiitaItem = realm.objects(QiitaItemRealm.self).filter("id = \(itemId)").first
+        let predicate = NSPredicate(format: "id = %@", itemId)
+        let qiitaItem = realm.objects(QiitaItemRealm).filter(predicate).first
         if let _ = qiitaItem?.favorite.first {
             deleteByQiitaItem(qiitaItem)
         } else {

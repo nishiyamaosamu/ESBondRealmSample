@@ -17,6 +17,9 @@ class FavoriteTableVM {
     
     init(){
         let favorites = Favorite.getAll()
+        
+        // Realmからの変更通知を受け取って、qiitaItemTableViewCellViewVMsを変更することでViewの表示を変える
+        // Model => View
         notificationToken = favorites.addNotificationBlock( { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .Initial(_):
@@ -59,6 +62,8 @@ class FavoriteTableVM {
         })
     }
     
+    // ViewControllerでユーザーのイベントを受け取って下記の関数が叩かれることで、Modelにデータ変更を依頼する
+    // View => Model
     func removeFavorite(item : QiitaItemTableViewCellVM){
         Favorite.deleteByQiitaItemId(item.itemId.value)
     }

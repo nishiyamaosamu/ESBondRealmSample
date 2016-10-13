@@ -16,6 +16,9 @@ class NewsTableVM {
     
     init(){
         let news = News.getAll()
+        
+        // Realmからの変更通知を受け取って、qiitaItemTableViewCellViewVMsを変更することでViewの表示を変える
+        // Model => View
         notificationToken = news.addNotificationBlock( { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .Initial(_):
@@ -28,12 +31,6 @@ class NewsTableVM {
                 break
                 
             case .Update(let elements, let deletions, let insertions, let modifications):
-                print(elements.count)
-                print(deletions)
-                print(insertions)
-                print(modifications)
-                
-                
                 deletions.reverse().forEach { deleteIndex in
                     if let arr = self?.qiitaItemTableViewCellViewVMs.first {
                         arr.removeAtIndex(deleteIndex)
@@ -62,13 +59,23 @@ class NewsTableVM {
         })
     }
     
+    // ViewControllerでユーザーのイベントを受け取って下記の関数が叩かれることで、Modelにデータ変更を依頼する
+    // View => Model
     func fetch(){
         News.fetch()
     }
-
     
     func toggleFavorite(item : QiitaItemTableViewCellVM){
         Favorite.toggleByItemId(item.itemId.value)
     }
     
+    func updateTitle(title: String) {
+        qiitaItemTableViewCellViewVMs.first!.forEach { vm in
+            guard let qiitaItem = vm.qiitaItem else {
+                return
+            }
+            
+            News.updateTitle(qiitaItem, title: title)
+        }
+    }
 }

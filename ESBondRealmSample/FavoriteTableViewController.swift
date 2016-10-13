@@ -26,19 +26,7 @@ class FavoriteTableViewController: UITableViewController {
         self.vm.qiitaItemTavleViewCellVMs.bindTo(tableView) { indexPath, dataSource, tableView in
             let cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier, forIndexPath: indexPath) as! QiitaItemTableViewCell
             let item = dataSource[indexPath.section][indexPath.row]
-            item.title
-                .bindTo(cell.title!.bnd_text)
-                .disposeIn(cell.bnd_bag)
-            item.userId
-                .bindTo(cell.userId!.bnd_text)
-                .disposeIn(cell.bnd_bag)
-            item.userImage
-                .bindTo(cell.userImageView.bnd_image)
-                .disposeIn(cell.bnd_bag)
-            item.fetchImageIfNeeded()
-            item.isNotFavorited
-                .bindTo(cell.favoritedMark.bnd_hidden)
-                .disposeIn(cell.bnd_bag)
+            cell.setCell(item)
             return cell
         }
     }
@@ -48,8 +36,7 @@ class FavoriteTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
