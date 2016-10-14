@@ -58,9 +58,7 @@ class News: NSObject {
                         
                         let news = self.initializeObject(item.id, item: item, user: user)
                         
-                        //try! realm.write {
-                            realm.add(news, update: true)
-                        //}
+                        realm.add(news, update: true)
                     }
                 try! realm.commitWrite()
         }

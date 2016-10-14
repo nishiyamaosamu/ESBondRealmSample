@@ -15,9 +15,10 @@ class QiitaItemTableViewCell: UITableViewCell {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var favoritedMark: UILabel!
     
+    
+    // Initialization code
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

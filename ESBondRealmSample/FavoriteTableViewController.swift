@@ -23,6 +23,8 @@ class FavoriteTableViewController: UITableViewController {
         self.tableView.registerNib(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
         self.tableView.delegate = self
         
+        // イベントを受け取って、vmに通知する
+        // ここでは、qiitaItemTableViewCellViewVMsの数が減ったり増えたりを検知できる
         self.vm.qiitaItemTavleViewCellVMs.bindTo(tableView) { indexPath, dataSource, tableView in
             let cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier, forIndexPath: indexPath) as! QiitaItemTableViewCell
             let item = dataSource[indexPath.section][indexPath.row]
@@ -38,12 +40,10 @@ class FavoriteTableViewController: UITableViewController {
 
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.vm.qiitaItemTavleViewCellVMs.count
     }
     

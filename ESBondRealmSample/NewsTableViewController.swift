@@ -42,25 +42,23 @@ class NewsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return self.vm.qiitaItemTableViewCellViewVMs.count
     }
-
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let item = self.vm.qiitaItemTableViewCellViewVMs[indexPath.section][indexPath.row]
+        self.vm.toggleFavorite(item)
+    }
+    
     @IBAction func tappedReload(sender: UIBarButtonItem) {
         self.vm.fetch()
     }
     
     @IBAction func tappedChange(sender: UIBarButtonItem) {
         self.vm.updateTitle("タイトル書き換え")
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = self.vm.qiitaItemTableViewCellViewVMs[indexPath.section][indexPath.row]
-        self.vm.toggleFavorite(item)
     }
 }
