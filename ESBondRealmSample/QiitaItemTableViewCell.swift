@@ -26,7 +26,7 @@ class QiitaItemTableViewCell: UITableViewCell {
     }
     
     // ここでは、qiitaItemTableViewCellVMのアトリビュートが変化したことを検知して、cellの表示に反映する
-    func setCell(item: QiitaItemTableViewCellVM){
+    func bindVM(item: QiitaItemTableViewCellVM){
         item.fetchImageIfNeeded()
 
         item.title.bindTo(title!.bnd_text).disposeIn(bnd_bag)
