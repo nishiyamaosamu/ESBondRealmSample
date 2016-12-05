@@ -26,7 +26,7 @@
 		17CCBB911D99F00400F04D2F /* QiitaItemTableViewCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CCBB841D99F00400F04D2F /* QiitaItemTableViewCellVM.swift */; };
 		17CCBB921D99F00400F04D2F /* QiitaUserRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17CCBB851D99F00400F04D2F /* QiitaUserRealm.swift */; };
 		17CCBB941D99F02500F04D2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CCBB931D99F02500F04D2F /* Main.storyboard */; };
-		BFED2C3C6592FFEF645F2ABE /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A566CAE2F9D1CF3CC1B25B5 /* Pods.framework */; };
+		BA5B9AAB981FF089ACCB6E28 /* Pods_ESBondRealmSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 708E33D65E87805D5C1767A2 /* Pods_ESBondRealmSample.framework */; };
 		C756F03B1DAE032300882A17 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = C756F03A1DAE032300882A17 /* Favorite.swift */; };
 		C756F03D1DAE032E00882A17 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C756F03C1DAE032E00882A17 /* News.swift */; };
 		C756F03F1DAE033C00882A17 /* QiitaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C756F03E1DAE033C00882A17 /* QiitaItem.swift */; };
@@ -51,7 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0757B6527397B6A18F091A1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		17CCBB481D99EED300F04D2F /* ESBondRealmSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESBondRealmSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CCBB4B1D99EED400F04D2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17CCBB521D99EED400F04D2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,12 +76,14 @@
 		17CCBB841D99F00400F04D2F /* QiitaItemTableViewCellVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QiitaItemTableViewCellVM.swift; sourceTree = "<group>"; };
 		17CCBB851D99F00400F04D2F /* QiitaUserRealm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QiitaUserRealm.swift; sourceTree = "<group>"; };
 		17CCBB931D99F02500F04D2F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		443A089F6EE5DCE772E6385E /* Pods-ESBondRealmSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESBondRealmSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ESBondRealmSample/Pods-ESBondRealmSample.debug.xcconfig"; sourceTree = "<group>"; };
 		4A566CAE2F9D1CF3CC1B25B5 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		708E33D65E87805D5C1767A2 /* Pods_ESBondRealmSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ESBondRealmSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C756F03A1DAE032300882A17 /* Favorite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		C756F03C1DAE032E00882A17 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		C756F03E1DAE033C00882A17 /* QiitaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QiitaItem.swift; sourceTree = "<group>"; };
 		C756F0401DAE034B00882A17 /* QiitaUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QiitaUser.swift; sourceTree = "<group>"; };
-		E09CCCED9DF7DB7A1B16A829 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FB920F306362B7ACAF108523 /* Pods-ESBondRealmSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ESBondRealmSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-ESBondRealmSample/Pods-ESBondRealmSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFED2C3C6592FFEF645F2ABE /* Pods.framework in Frameworks */,
+				BA5B9AAB981FF089ACCB6E28 /* Pods_ESBondRealmSample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,15 +112,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0389306ABE3CCB8182036CA9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0757B6527397B6A18F091A1C /* Pods.debug.xcconfig */,
-				E09CCCED9DF7DB7A1B16A829 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		17CCBB3F1D99EED300F04D2F = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +119,8 @@
 				17CCBB5F1D99EED400F04D2F /* ESBondRealmSampleTests */,
 				17CCBB6A1D99EED400F04D2F /* ESBondRealmSampleUITests */,
 				17CCBB491D99EED300F04D2F /* Products */,
-				0389306ABE3CCB8182036CA9 /* Pods */,
 				BCE08287D4E78D493695F35B /* Frameworks */,
+				881DF2A0D8BB81C7C01EA512 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,10 +218,20 @@
 			name = Storyboard;
 			sourceTree = "<group>";
 		};
+		881DF2A0D8BB81C7C01EA512 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				443A089F6EE5DCE772E6385E /* Pods-ESBondRealmSample.debug.xcconfig */,
+				FB920F306362B7ACAF108523 /* Pods-ESBondRealmSample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BCE08287D4E78D493695F35B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				4A566CAE2F9D1CF3CC1B25B5 /* Pods.framework */,
+				708E33D65E87805D5C1767A2 /* Pods_ESBondRealmSample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -252,12 +254,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17CCBB701D99EED400F04D2F /* Build configuration list for PBXNativeTarget "ESBondRealmSample" */;
 			buildPhases = (
-				802662ECB420BE075FAB2336 /* Check Pods Manifest.lock */,
+				AE8EE37D447D9C24A9669B50 /* [CP] Check Pods Manifest.lock */,
 				17CCBB441D99EED300F04D2F /* Sources */,
 				17CCBB451D99EED300F04D2F /* Frameworks */,
 				17CCBB461D99EED300F04D2F /* Resources */,
-				3D32939995EFBBAB79FFFF09 /* Embed Pods Frameworks */,
-				155C171BE157B13E37215422 /* Copy Pods Resources */,
+				888E8A5C915A4648A1B95A8D /* [CP] Embed Pods Frameworks */,
+				8BE0D3EEFADE55C859BE3981 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -378,49 +380,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		155C171BE157B13E37215422 /* Copy Pods Resources */ = {
+		888E8A5C915A4648A1B95A8D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ESBondRealmSample/Pods-ESBondRealmSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3D32939995EFBBAB79FFFF09 /* Embed Pods Frameworks */ = {
+		8BE0D3EEFADE55C859BE3981 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ESBondRealmSample/Pods-ESBondRealmSample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		802662ECB420BE075FAB2336 /* Check Pods Manifest.lock */ = {
+		AE8EE37D447D9C24A9669B50 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -578,7 +580,7 @@
 		};
 		17CCBB711D99EED400F04D2F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0757B6527397B6A18F091A1C /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 443A089F6EE5DCE772E6385E /* Pods-ESBondRealmSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ESBondRealmSample/Info.plist;
@@ -590,7 +592,7 @@
 		};
 		17CCBB721D99EED400F04D2F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E09CCCED9DF7DB7A1B16A829 /* Pods.release.xcconfig */;
+			baseConfigurationReference = FB920F306362B7ACAF108523 /* Pods-ESBondRealmSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ESBondRealmSample/Info.plist;
