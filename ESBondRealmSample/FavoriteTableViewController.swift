@@ -23,22 +23,12 @@ class FavoriteTableViewController: UITableViewController {
         self.tableView.registerNib(cellNib, forCellReuseIdentifier: cellReuseIdentifier)
         self.tableView.delegate = self
         
-        self.vm.articleItems.bindTo(tableView) { indexPath, dataSource, tableView in
+        // イベントを受け取って、vmに通知する
+        // ここでは、qiitaItemTableViewCellViewVMsの数が減ったり増えたりを検知できる
+        self.vm.qiitaItemTavleViewCellVMs.bindTo(tableView) { indexPath, dataSource, tableView in
             let cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier, forIndexPath: indexPath) as! QiitaItemTableViewCell
             let item = dataSource[indexPath.section][indexPath.row]
-            item.title
-                .bindTo(cell.title!.bnd_text)
-                .disposeIn(cell.bnd_bag)
-            item.userId
-                .bindTo(cell.userId!.bnd_text)
-                .disposeIn(cell.bnd_bag)
-            item.userImage
-                .bindTo(cell.userImageView.bnd_image)
-                .disposeIn(cell.bnd_bag)
-            item.fetchImageIfNeeded()
-            item.isNotFavorited
-                .bindTo(cell.favoritedMark.bnd_hidden)
-                .disposeIn(cell.bnd_bag)
+            cell.bindVM(item)
             return cell
         }
     }
@@ -48,20 +38,17 @@ class FavoriteTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.vm.articleItems.count
+        return self.vm.qiitaItemTavleViewCellVMs.count
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let item = self.vm.articleItems[indexPath.section][indexPath.row]
+        let item = self.vm.qiitaItemTavleViewCellVMs[indexPath.section][indexPath.row]
         self.vm.removeFavorite(item)
     }
 

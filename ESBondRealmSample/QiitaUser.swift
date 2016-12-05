@@ -2,19 +2,18 @@
 //  QiitaUser.swift
 //  ESBondRealmSample
 //
-//  Created by Osamu Nishiyama on 2016/09/23.
+//  Created by 江上真人 on 2016/10/12.
 //  Copyright © 2016年 ever sense. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-class QiitaUser: Object {
-    dynamic var id = ""
-    dynamic var profile_image_url  = "https://qiita-image-store.s3.amazonaws.com/0/88/profile-images/1473684075"
-    
-    override static func primaryKey() -> String? {
-        return "id"
+class QiitaUser: NSObject {
+    static func initializeObject(id: String, profile_image_url: String) -> QiitaUserRealm{
+        let user = QiitaUserRealm()
+        user.id = id
+        user.profile_image_url = profile_image_url
+        return user;
     }
-
 }
