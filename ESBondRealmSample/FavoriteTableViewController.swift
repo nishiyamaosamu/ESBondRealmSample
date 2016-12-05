@@ -26,7 +26,7 @@ class FavoriteTableViewController: UITableViewController {
         self.vm.qiitaItemTavleViewCellVMs.bindTo(tableView) { indexPath, dataSource, tableView in
             let cell = tableView.dequeueReusableCellWithIdentifier(self.cellReuseIdentifier, forIndexPath: indexPath) as! QiitaItemTableViewCell
             let item = dataSource[indexPath.section][indexPath.row]
-            cell.setCell(item)
+            cell.bindVM(item)
             return cell
         }
     }
